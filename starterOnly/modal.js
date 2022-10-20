@@ -17,7 +17,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+    modalbg.style.display = "block";
 }
 
 
@@ -27,31 +27,35 @@ function launchModal() {
 
 
 
-
+/* FERMETURE MODALE */
 
 // Fermeture mondale au clic X 
-
 // Déclaration constante fermeture modale 
 const modalClose = document.querySelectorAll(".close"); 
-// close modal
 modalClose.forEach(Element=>Element.addEventListener("click", closeModal));
 // Fonction déterminant la fermeture de la modale 
 function closeModal() {
-  modalbg.style.display = "none";
+    modalbg.style.display = "none";
 } 
 
 
-
-
-
-/* Test - Fermeture bouton Echap et Entrée 
+// Fermeture modale bouton Echap 
 const keyCodes = {
-  enter: 13,
-  escape: 27
+    escape: "Escape"
 };
-modalBtn.addEventListener('keydown', (event) => {
-  if (event.which === keyCodes.escape) {
-    modalClose(modalBtn, launchModal);
-  }
+window.addEventListener('keydown', (event) => {
+    if (event.code === keyCodes.escape) {
+        closeModal();
+    }
 });
-*/ 
+
+// Fermeture modale via un clic outside 
+modalbg.addEventListener('click',(event) => {
+    if (event.target !== event.currentTarget) {
+        return
+    }
+    closeModal();
+});
+
+
+/* FORMULAIRE -- Créer un fichier form.js à part */ 

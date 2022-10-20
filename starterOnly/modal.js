@@ -21,3 +21,17 @@ function launchModal() {
 }
 
 
+// MODIFICATIONS 
+
+
+
+// Fermeture mondale 
+
+// Déclaration constante fermeture modale 
+const modalClose = document.querySelectorAll(".close"); 
+// close modal
+modalClose.forEach(Element=>Element.addEventListener("click", closeModal));
+// Fonction déterminant la fermeture de la modale 
+function closeModal() {
+  modalbg.style.display = "none";
+} 

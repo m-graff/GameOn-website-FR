@@ -21,11 +21,15 @@ function launchModal() {
 }
 
 
-// MODIFICATIONS 
+
+
+/* ----------- MODIFICATIONS --------------- */ 
 
 
 
-// Fermeture mondale 
+
+
+// Fermeture mondale au clic X 
 
 // Déclaration constante fermeture modale 
 const modalClose = document.querySelectorAll(".close"); 
@@ -35,3 +39,19 @@ modalClose.forEach(Element=>Element.addEventListener("click", closeModal));
 function closeModal() {
   modalbg.style.display = "none";
 } 
+
+
+
+
+
+/* Test - Fermeture bouton Echap et Entrée 
+const keyCodes = {
+  enter: 13,
+  escape: 27
+};
+modalBtn.addEventListener('keydown', (event) => {
+  if (event.which === keyCodes.escape) {
+    modalClose(modalBtn, launchModal);
+  }
+});
+*/ 

@@ -61,66 +61,75 @@
           <!-- Formulaire modale -->
           <div class="modal-body">
             <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+
               <div class="formData">
-                <label>Prénom</label>
-                <br>
-                <input class="text-control" type="text" id="first" name="first" minlength="2"/>
-                <br>
+                <label>Prénom</label><br>
+                <input class="text-control" type="text" id="user-firstname" name="user-firstname" minlength="2"/>
+                <div class="errorMsg">Votre prénom doit contenir au moins deux caractères</div>
               </div>
+
               <div class="formData">
                 <label>Nom</label><br>
-                <input class="text-control" type="text" id="last" name="last"/>
-                <br>
+                <input class="text-control" type="text" id="user-lastname" name="user-lastname"/><br>
+                <div class="errorMsg">Votre nom doit contenir au moins deux caractères</div>
               </div>
+
               <div class="formData">
-                <label>E-mail</label>
-                <br>
-                <input class="text-control" type="email" id="email" name="email" />
-                <br>
+                <label>E-mail</label><br>
+                <input class="text-control" type="email" id="user-email" name="user-email" /><br>
+                <div class="errorMsg">Adresse email non valide</div>
               </div>
+
               <div class="formData">
-                <label>Date de naissance</label>
-                <br>
-                <input class="text-control" type="date" id="birthdate" name="birthdate" />
-                <br>
+                <label>Date de naissance</label><br>
+                <input class="text-control" type="date" id="user-birthdate" name="user-birthdate" /><br>
+                <div class="errorMsg">Date de naissance non valide</div>
               </div>
+
               <div class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label>
-                <br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <input type="number" class="text-control" id="user-quantity" name="user-quantity" min="0" max="99">
+                <div class="errorMsg">Veuillez renseigner un nombre</div>
               </div>
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+
               <div class="formData">
-                <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
-                <label class="checkbox-label" for="location1">
-                  <span class="checkbox-icon"></span>
-                  New York
-                </label>
-                <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco" />
-                <label class="checkbox-label" for="location2">
+                <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+                  <input class="checkbox-input" type="radio" id="user-location1" name="user-location" value="New York" />
+                  <label class="checkbox-label" for="user-location1">
+                    <span class="checkbox-icon"></span>
+                    New York
+                  </label>
+             
+                <input class="checkbox-input" type="radio" id="user-location2" name="user-location" value="San Francisco" />
+                <label class="checkbox-label" for="user-location2">
                   <span class="checkbox-icon"></span>
                   San Francisco
                 </label>
-                <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" />
-                <label class="checkbox-label" for="location3">
+
+                <input class="checkbox-input" type="radio" id="user-location3" name="user-location" value="Seattle" />
+                <label class="checkbox-label" for="user-location3">
                   <span class="checkbox-icon"></span>
                   Seattle
                 </label>
-                <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago" />
-                <label class="checkbox-label" for="location4">
+
+                <input class="checkbox-input" type="radio" id="user-location4" name="user-location" value="Chicago" />
+                <label class="checkbox-label" for="user-location4">
                   <span class="checkbox-icon"></span>
                   Chicago
-                  </label>
-                <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" />
-                <label class="checkbox-label" for="location5">
+                </label>
+
+                <input class="checkbox-input" type="radio" id="user-location5" name="user-location" value="Boston" />
+                <label class="checkbox-label" for="user-location5">
                   <span class="checkbox-icon"></span>
                   Boston
                 </label>
-                <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland" />
-                <label class="checkbox-label" for="location6">
+
+                <input class="checkbox-input" type="radio" id="user-location6" name="user-location" value="Portland" />
+                <label class="checkbox-label" for="user-location6">
                   <span class="checkbox-icon"></span>
                   Portland
                 </label>
+                <div class="errorMsg">Veuillez sélectionner une ville</div>
               </div>
 
               <div class="formData">
@@ -129,18 +138,22 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <br>
+                <div class="errorMsg">Veuillez accepter les conditions générales d'utilisation</div>
+              </div>
+
+              <div class="formaData">
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
-                <br>
               </div>
+
               <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+              
             </form>
           </div>
-          
+
         </div>
       </div>
     </main>

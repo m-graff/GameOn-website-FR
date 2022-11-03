@@ -38,7 +38,6 @@ function closeModal() {
     modalbg.style.display = "none";
 } 
 
-
 // Fermeture modale bouton Echap 
 const keyCodes = {
     escape: "Escape"
@@ -58,4 +57,18 @@ modalbg.addEventListener('click',(event) => {
 });
 
 
+
 /* FORMULAIRE -- Créer un fichier form.js à part */ 
+
+// DOM Elements 
+
+const btnFormSubmit = document.getElementById("btn-form-submit");
+btnFormSubmit.addEventListener('click', validation);
+
+const userFirstName = document.getElementById("user-firstname");
+const userLastName = document.getElementById("user-lastname");
+const userEmail = document.getElementById("user-email");
+const userBirthdate = document.getElementById("user-birthdate");
+const userQuantity = document.getElementById("user-quantity");
+
+const userFirstName = document.getElementById("user-firstname");

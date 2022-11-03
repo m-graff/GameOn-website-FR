@@ -60,36 +60,41 @@
                         <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
 
                             <div class="formData">
-                                <label>Prénom</label><br>
+                                <label for="user-firstname">Prénom</label><br>
                                 <input class="text-control" type="text" id="user-firstname" name="user-firstname" minlength="2" required/>
                                 <!--<div class="errorMsg">Votre prénom doit contenir au moins deux caractères</div>-->
+                                <span id="info-firstname"></span>
                             </div>
 
                             <div class="formData">
-                                <label>Nom</label><br>
-                                <input class="text-control" type="text" id="user-lastname" name="user-lastname" required/><br>
+                                <label for="user-lastname">Nom</label><br>
+                                <input class="text-control" type="text" id="user-lastname" name="user-lastname" minlength="2" required/><br>
                                 <!--<div class="errorMsg">Votre nom doit contenir au moins deux caractères</div>-->
+                                <span id="info-lastname"></span>
                             </div>
 
                             <div class="formData">
-                                <label>E-mail</label><br>
+                                <label for="user-email">E-mail</label><br>
                                 <input class="text-control" type="email" id="user-email" name="user-email" required/><br>
                                 <!--<div class="errorMsg">Adresse email non valide</div>-->
+                                <span id="info-email"></span>
                             </div>
 
                             <div class="formData">
-                                <label>Date de naissance</label><br>
+                                <label for="user-birthdate">Date de naissance</label><br>
                                 <input class="text-control" type="date" id="user-birthdate" name="user-birthdate" required/><br>
                                 <!--<div class="errorMsg">Date de naissance non valide</div>-->
+                                <span id="info-birthdate"></span>
                             </div>
 
                             <div class="formData">
-                                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                                <input type="number" class="text-control" id="user-quantity" name="user-quantity" min="0" max="99" required>
+                                <label for="user-trn-quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                                <input type="number" class="text-control" id="user-trn-quantity" name="user-trn-quantity" min="0" max="99" required>
                                 <!--<div class="errorMsg">Veuillez renseigner un nombre</div>-->
+                                <span id="info-trn-quantity"></span>
                             </div>
 
-                            <div class="formData">
+                            <div id="cities-checkbox" class="formData">
                                 <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                                 <input class="checkbox-input" type="radio" id="user-location1" name="user-location" value="New York" />
                                 <label class="checkbox-label" for="user-location1">
@@ -127,26 +132,30 @@
                                     Portland
                                 </label>
                                 <!--<div class="errorMsg">Veuillez sélectionner une ville</div>-->
+                                <span id="info-checkbox"></span>
                             </div>
 
                             <div class="formData">
-                                <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
-                                <label class="checkbox2-label" for="checkbox1" required>
+                                <input class="checkbox-input" type="checkbox" id="cgu" required checked />
+                                <label class="checkbox2-label" for="cgu">
                                     <span class="checkbox-icon"></span>
                                     J'ai lu et accepté les conditions d'utilisation.
                                 </label>
                                 <!--<div class="errorMsg">Veuillez accepter les conditions générales d'utilisation</div>-->
+                                <span id="info-cgu"></span>
                             </div>
 
                             <div class="formaData">
-                                <input class="checkbox-input" type="checkbox" id="checkbox2" />
-                                <label class="checkbox2-label" for="checkbox2">
+                                <input class="checkbox-input" type="checkbox" id="newsletter" />
+                                <label class="checkbox2-label" for="newsletter">
                                     <span class="checkbox-icon"></span>
                                     Je souhaite être prévenu des prochains évènements.
                                 </label>
                             </div>
 
-                            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+                            <label for="btn-form-submit"></label>
+                            <input class="btn-submit" type="submit" id="btn-form-submit" value="C'est parti" />
+                            <span id="info-signup"></span>
                         
                         </form>
                     </div>

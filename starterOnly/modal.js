@@ -89,6 +89,9 @@ const cityCheckboxBtn = document.querySelectorAll("input[type=checkbox][name=loc
 let arrayCityCheckbox = []; // Tableau vide récupérant les choix des checkboxs
 cityCheckbox.style.display = "none"; // Option de choix des villes initialement masquée
 
+const userCgu = document.getElementById("cgu");
+const userNewsletter = document.getElementById("newsletter");
+
 // Messages d'erreurs 
 const infoFirstName = document.getElementById("info-firstname");
 const infoLastName = document.getElementById("info-lastname");
@@ -96,6 +99,7 @@ const infoEmail = document.getElementById("info-email");
 const infoBirthdate = document.getElementById("info-birthdate");// VERIFIER QUE C'EST UN OBJ DATE (NEW DATE) DEFINIR UN STOP ENTRE 99 et 18 ANS - PRIO VERIF SI MAJEURE 
 const infoTrnQuanity = document.getElementById("info-trn-quantity"); // INPUT CLASSIQUE, 0 QUANTITE VALIDE (le user peut avoir participé à 0 tournoi)
 const infoCityCheckbox = document.getElementById("info-checkbox"); // RECUPERER UNE VALEUR, PAS DE BOUCLE
+const infoCgu = document.getElementById("info-cgu");
 
 // Regex 
 const regexName = /^[a-zA-Z-\s]+$/;
@@ -198,16 +202,34 @@ userTrnQuantity.addEventListener('input', function ()  {
 cityCheckboxBtn.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
         arrayCityCheckbox = 
-            Array.from(cityCheckboxBtn)
-                .filter(i => i.checked)
-                .map(i => i.value)
+            Array.from(cityCheckboxBtn)     // Convertion des checkboxs en tableau afin d'utiliser la méthode filter et map
+                .filter(i => i.checked)     // Sélection et suppression des boutons non cochés
+                .map(i => i.value)          // Extraction du bouton coché 
             return arrayCityCheckbox;
     })
 });
 
+// Vérification Input Condition générales d'utilisation 
+userCgu.addEventListener('change', function() {
+    if (this.checked) {
+        infoCgu.style.display = "none";
+    return userCgu.checked;
+    } else {
+        infoCgu.style.display = "block";
+        infoCgu.textContent = "Veuillez accepter les conditions générales d'utilisation";
+        infoCgu.style.color = "red"
+    return false;
+    };
+});
 
-
-// ------------------ QUESTION : COMMENT FAIRE LA VALIDATION DES VILLES  ? 
+// Vérification Input Newsletter
+userNewsletter.addEventListener('change', function() {
+    if (this.checked) {
+        return userNewsletter.checked;
+    } else {
+        return false;
+    }
+});
 
 
 

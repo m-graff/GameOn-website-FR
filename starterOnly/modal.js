@@ -83,7 +83,11 @@ const userLastName = document.getElementById("user-lastname");
 const userEmail = document.getElementById("user-email");
 const userBirthdate = document.getElementById("user-birthdate");
 const userTrnQuantity = document.getElementById("user-trn-quantity");
-const cityCheckbox = document.getElementById("city-checkbox");
+
+const cityCheckbox = document.getElementById("city-checkbox"); // Contenant checkbox villes
+const cityCheckboxBtn = document.querySelectorAll("input[type=checkbox][name=location]"); // Boutons checkbox villes
+let arrayCityCheckbox = []; // Tableau vide récupérant les choix des checkboxs
+cityCheckbox.style.display = "none"; // Option de choix des villes initialement masquée
 
 // Messages d'erreurs 
 const infoFirstName = document.getElementById("info-firstname");
@@ -183,6 +187,15 @@ function verifyTrnQuantity() {
     }
     return validInput (infoTrnQuanity, "Nombre de participations valide !");
 };
+
+// Ecoute de la vérification du nombre de tournois participés. Si >0, alors l'option du choix des villes est affichée à l'utilisateur
+userTrnQuantity.addEventListener('input', function ()  {
+    if (userTrnQuantity.value >0) {
+        cityCheckbox.style.display = "block";
+    } else {
+        cityCheckbox.style.display = "none";
+    }
+});
 
 
 

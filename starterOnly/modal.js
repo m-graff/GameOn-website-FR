@@ -84,10 +84,7 @@ const userEmail = document.getElementById("user-email");
 const userBirthdate = document.getElementById("user-birthdate");
 const userTrnQuantity = document.getElementById("user-trn-quantity");
 
-const cityCheckbox = document.getElementById("city-checkbox"); // Contenant checkbox villes
-const cityCheckboxBtn = document.querySelectorAll("input[type=checkbox][name=location]"); // Boutons checkbox villes
-let arrayCityCheckbox = []; // Tableau vide récupérant les choix des checkboxs
-cityCheckbox.style.display = "none"; // Option de choix des villes initialement masquée
+
 
 const userCgu = document.getElementById("cgu");
 const userNewsletter = document.getElementById("newsletter");
@@ -103,7 +100,6 @@ const infoCgu = document.getElementById("info-cgu");
 
 // Regex 
 const regexName = /^[a-zA-Z-\s]+$/;
-const regexEmail = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 //const regexBirthdate = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])|(0?[1-9]|[12]\d|3[01])[/](0?[1-9]|1[0-2])[/](19[3-9]+[0-9]|200[0-6]))$/;
 
 // AJOUTER UN EVENEMENT PAR INPUT (BLUR) POUR DECLARER QUA CHAQUE SORTIE DE CHAMP, LEVENEMENT SE DECLENCHE
@@ -113,7 +109,7 @@ function validInput (selector, message) {
     selector.style.color = "green";
     selector.style.fontSize = "15px";
     selector.previousElementSibling.style.border = "5px solid green";
-    return selector.previousElementSibling.value;
+    return true;
 }
 
 // Comportement en cas de champ invalide 
@@ -125,7 +121,7 @@ function invalidInput (selector, errorMessage) {
     return false;
 }
 
-// DUPLIQUER LE PRINCIPE POUR CHAQUE CHAMP 
+// DUPLIQUER LE PRINCIPE POUR CHAQUE CHAMP - NOM PRENOM AURAIENT PU ETRE REUNI DANS UNE FONCTION SOUS FORME DE PARAMETRES
 // Vérification Input Prénom
 function verifyFirstName() {
     const testFirstname = regexName.test(userFirstName.value);
@@ -160,6 +156,7 @@ function verifyLastName() {
 
 // Vérification Input Email
 function verifyEmail() {
+    const regexEmail = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
     const testEmail = regexEmail.test(userEmail.value);
 
     if (userEmail.value === "") {
@@ -172,6 +169,7 @@ function verifyEmail() {
 };
 
 // Vérification Input Date de naissance
+// CREER UN OBJET DATE - VALIDATION MAJEURE (PAS DE LIBRARIE)
 function verifyBirthdate() {
     if (userBirthdate.value === "") {
         return invalidInput (infoBirthdate, "Merci de renseigner votre date de naissance !");
@@ -190,45 +188,41 @@ function verifyTrnQuantity() {
     return validInput (infoTrnQuanity, "Nombre de participations valide !");
 };
 
-// Ecoute de la vérification du nombre de tournois participés. Si >0, alors l'option du choix des villes est affichée à l'utilisateur
-userTrnQuantity.addEventListener('input', function ()  {
-    if (userTrnQuantity.value >0) {
-        cityCheckbox.style.display = "block";
-    } else {
-        cityCheckbox.style.display = "none";
-    }
-});
+
+
 // Vérification Inputs Choix des villes ayant déjà participés 
+const cityCheckbox = document.getElementById("city-checkbox"); // Contenant checkbox villes
+const cityCheckboxBtn = document.querySelectorAll("input[type=radio]"); // Boutons checkbox villes
+let arrayCityCheckbox =  Array.from(cityCheckboxBtn).find(i => i.checked);
 cityCheckboxBtn.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
         arrayCityCheckbox = 
             Array.from(cityCheckboxBtn)     // Convertion des checkboxs en tableau afin d'utiliser la méthode filter et map
-                .filter(i => i.checked)     // Sélection et suppression des boutons non cochés
-                .map(i => i.value)          // Extraction du bouton coché 
-            return arrayCityCheckbox;
+                .find(i => i.checked)       // Sélection du bouton coché 
+            arrayCityCheckbox = arrayCityCheckbox !== null;
     })
 });
 
+
 // Vérification Input Condition générales d'utilisation 
-userCgu.addEventListener('change', function() {
-    if (this.checked) {
+let userCguCheck = userCgu.checked;
+userCgu.addEventListener('change', function(event) {
+    if (event.target.checked) {
         infoCgu.style.display = "none";
-    return userCgu.checked;
-    } else {
+        userCguCheck = true;
+        return
+    } 
         infoCgu.style.display = "block";
         infoCgu.textContent = "Veuillez accepter les conditions générales d'utilisation";
-        infoCgu.style.color = "red"
-    return false;
-    };
+        infoCgu.style.color = "red";
+        infoCgu.style.fontSize = "15px";
+        userCguCheck = false;
 });
 
 // Vérification Input Newsletter
-userNewsletter.addEventListener('change', function() {
-    if (this.checked) {
-        return userNewsletter.checked;
-    } else {
-        return false;
-    }
+let userNewsletterCheck = userNewsletter.checked;
+userNewsletter.addEventListener('change', function(event) {
+    userNewsletterCheck = event.target.checked;
 });
 
 
@@ -242,8 +236,7 @@ function formValidation(e) {
     let validEmail = verifyEmail();
     let validBirthdate = verifyBirthdate();
     let validTrnQuantity = verifyTrnQuantity();
-
-    if(validFirstName && validLastName && validEmail && validBirthdate && validTrnQuantity) {
+    if(validFirstName && validLastName && validEmail && validBirthdate && validTrnQuantity && userCguCheck && userNewsletterCheck && arrayCityCheckbox) {
 
         let formData = new FormData();
 
@@ -251,11 +244,16 @@ function formValidation(e) {
         formData.append('lastName', validLastName);
         formData.append('email', validEmail);
         formData.append('birthdate', validBirthdate);
-        formData.append('trnQuantity', validrnQuantity);
+        formData.append('trnQuantity', validTrnQuantity);
         formData.append('trnCity', arrayCityCheckbox);
-        // console.log(firstName, lastName, etc.)
+        formData.append('newsletter', userNewsletter.checked);
+        window.alert('Merci ! Votre réservation a bien été reçue !') // AJOUTER UNE MODALE DE CONFIRMATION 
     }
+    
 
     // confirmationModale();
     // CREER UNE NOUVELLE MODALE DE VALIDATION DE FORMULAIRE 
 }
+
+
+

@@ -103,6 +103,7 @@ const regexBirthdate = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12
 function validInput (selector, message) {
     selector.textContent = message;
     selector.style.color = "green";
+    selector.style.fontSize = "15px";
     selector.previousElementSibling.style.border = "5px solid green";
     return selector.previousElementSibling.value;
 }
@@ -111,6 +112,7 @@ function validInput (selector, message) {
 function invalidInput (selector, errorMessage) {
     selector.textContent = errorMessage;
     selector.style.color = "red";
+    selector.style.fontSize = "15px";
     selector.previousElementSibling.style.border = "5px solid red";
     return false;
 }
@@ -168,13 +170,23 @@ function verifyBirthdate() {
     if (userBirthdate.value === "") {
         return invalidInput (infoBirthdate, "Merci de renseigner votre date de naissance !");
     }
-    if (testBirthdate.value.trim().length <10) {
+    if (testBirthdate.value.trim().length <8) {
         return invalidInput (infoBirthdate, "Format incorrect !");
     }
     return validInput (infoBirthdate, "Date de naissance valide !");
 };
 
-// ------------------ QUESTION : COMMENT FAIRE LA VALIDATION DU NOMBRE DE TOURNOIS ? 
+// Vérification Input Nombre de tournois participés
+function verifyTrnQuantity() {
+    if (userTrnQuantity.value === "") {
+        return invalidInput (infoTrnQuanity, "Merci de renseigner un nombre de participations !");
+    }
+    return validInput (infoTrnQuanity, "Nombre de participations valide !");
+};
+
+
+
+// ------------------ QUESTION : COMMENT FAIRE LA VALIDATION DES VILLES  ? 
 
 
 
@@ -184,13 +196,19 @@ function formValidation(e) {
 
     let validFirstName = verifyFirstName();
     let validLastName = verifyLastName();
+    let validEmail = verifyEmail();
+    let validBirthdate = verifyBirthdate();
+    let validTrnQuantity = verifyTrnQuantity();
 
-    if(validFirstName && validLastName) {
+    if(validFirstName && validLastName && validEmail && validBirthdate && validTrnQuantity) {
 
         let formData = new FormData();
 
         formData.append('firstName', verifyFirstName);
-        formData.append('lastName', verifyLastName)
+        formData.append('lastName', verifyLastName);
+        formData.append('email', verifyEmail);
+        formData.append('birthdate', verifyBirthdate);
+        formData.append('trnQuantity', verifyTrnQuantity);
         // console.log(firstName, lastName, etc.)
     }
 

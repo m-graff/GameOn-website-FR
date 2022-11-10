@@ -100,7 +100,7 @@ const infoCityCheckbox = document.getElementById("info-checkbox"); // RECUPERER 
 // Regex 
 const regexName = /^[a-zA-Z-\s]+$/;
 const regexEmail = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-const regexBirthdate = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])|(0?[1-9]|[12]\d|3[01])[/](0?[1-9]|1[0-2])[/](19[3-9]+[0-9]|200[0-6]))$/;
+//const regexBirthdate = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])|(0?[1-9]|[12]\d|3[01])[/](0?[1-9]|1[0-2])[/](19[3-9]+[0-9]|200[0-6]))$/;
 
 // AJOUTER UN EVENEMENT PAR INPUT (BLUR) POUR DECLARER QUA CHAQUE SORTIE DE CHAMP, LEVENEMENT SE DECLENCHE
 // Comportement en cas de champ valide 
@@ -169,12 +169,10 @@ function verifyEmail() {
 
 // Vérification Input Date de naissance
 function verifyBirthdate() {
-    const testBirthdate = regexBirthdate.test(userBirthdate.value);
-
     if (userBirthdate.value === "") {
         return invalidInput (infoBirthdate, "Merci de renseigner votre date de naissance !");
     }
-    if (testBirthdate.value.trim().length <8) {
+    if (userBirthdate.value.trim().length <8) {
         return invalidInput (infoBirthdate, "Format incorrect !");
     }
     return validInput (infoBirthdate, "Date de naissance valide !");
@@ -195,6 +193,16 @@ userTrnQuantity.addEventListener('input', function ()  {
     } else {
         cityCheckbox.style.display = "none";
     }
+});
+// Vérification Inputs Choix des villes ayant déjà participés 
+cityCheckboxBtn.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        arrayCityCheckbox = 
+            Array.from(cityCheckboxBtn)
+                .filter(i => i.checked)
+                .map(i => i.value)
+            return arrayCityCheckbox;
+    })
 });
 
 
@@ -217,11 +225,12 @@ function formValidation(e) {
 
         let formData = new FormData();
 
-        formData.append('firstName', verifyFirstName);
-        formData.append('lastName', verifyLastName);
-        formData.append('email', verifyEmail);
-        formData.append('birthdate', verifyBirthdate);
-        formData.append('trnQuantity', verifyTrnQuantity);
+        formData.append('firstName', validFirstName);
+        formData.append('lastName', validLastName);
+        formData.append('email', validEmail);
+        formData.append('birthdate', validBirthdate);
+        formData.append('trnQuantity', validrnQuantity);
+        formData.append('trnCity', arrayCityCheckbox);
         // console.log(firstName, lastName, etc.)
     }
 

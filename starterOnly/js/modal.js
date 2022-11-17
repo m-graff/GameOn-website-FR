@@ -59,6 +59,46 @@ modalbg.addEventListener('click',(event) => {
 
 
 
+/* CONFIRMATION MODALE */
+
+// DOM Elements 
+const confirmModal = document.getElementById("confirm-section");
+const confirmBtn = document.getElementById("confirm-btn");
+
+// Fonction d'affichage de la modale de confirmation
+function confirmModalDisplay() {
+    confirmModal.classList.add("visible") // Rajoute à la section la class visible, puis gestion de l'affichage via le CSS 
+}
+
+
+confirmBtn.addEventListener('click', resetSignupModal);
+
+// 
+function resetSignupModal() {
+confirmModal.classList.remove("visible")
+  document.querySelector("form").reset();
+  
+  infoFirstName.previousElementSibling.style.border = "none";
+  infoFirstName.textContent = "";
+  
+  infoLastName.previousElementSibling.style.border = "none";
+  infoLastName.textContent = "";
+  
+  infoEmail.previousElementSibling.style.border = "none";
+  infoEmail.textContent = "";
+  
+  infoBirthdate.previousElementSibling.style.border = "none";
+  infoBirthdate.textContent = "";
+  
+  infoTrnQuanity.previousElementSibling.style.border = "none";
+  infoTrnQuanity.textContent = "";
+
+  /*
+  infoCityCheckbox = [];
+  cityCheckbox.style.display = "none";
+  */
+}
+
 
 
 

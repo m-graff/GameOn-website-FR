@@ -19,6 +19,8 @@ body {
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
+
+ 
 }
 
 p {
@@ -527,3 +529,34 @@ footer {
   }
 }
 
+
+/* MODIFS */
+
+/* Modale Confirmation d'inscription */
+#confirm-section {
+  display: none;
+}
+
+#confirm-background {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+  background-color: white;
+  
+}
+
+#confirm-form {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+  background-color: #000;
+}
+
+#confirm-section.visible {
+  display: flex;
+}

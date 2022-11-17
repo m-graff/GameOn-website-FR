@@ -1,78 +1,7 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-// launch modal form
-function launchModal() {
-    modalbg.style.display = "block";
-}
-
-
-
-
-/* ----------- MODIFICATIONS --------------- */ 
-
-
-
-/* FERMETURE MODALE */
-
-// Fermeture mondale au clic X 
-// Déclaration constante fermeture modale 
-const modalClose = document.querySelectorAll(".close"); 
-modalClose.forEach(Element=>Element.addEventListener("click", closeModal));
-// Fonction déterminant la fermeture de la modale 
-function closeModal() {
-    modalbg.style.display = "none";
-} 
-
-// Fermeture modale bouton Echap 
-const keyCodes = {
-    escape: "Escape"
-};
-window.addEventListener('keydown', (event) => {
-    if (event.code === keyCodes.escape) {
-        closeModal();
-    }
-});
-
-// Fermeture modale via un clic outside 
-modalbg.addEventListener('click',(event) => {
-    if (event.target !== event.currentTarget) {
-        return
-    }
-    closeModal();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* FORMULAIRE -- Créer un fichier form.js à part */ 
+/* FORMULAIRE */ 
 
 
 // DOM Elements 
-
 // Bouton de validation du formulaire -- MODIFIER EN EVENT SUBMIT SUR LE FORM PLUTOT QUE SUR LE BOUTON
 const btnFormSubmit = document.getElementById("btn-form-submit");
 btnFormSubmit.addEventListener('click', formValidation);
@@ -83,9 +12,6 @@ const userLastName = document.getElementById("user-lastname");
 const userEmail = document.getElementById("user-email");
 const userBirthdate = document.getElementById("user-birthdate");
 const userTrnQuantity = document.getElementById("user-trn-quantity");
-
-
-
 const userCgu = document.getElementById("cgu");
 const userNewsletter = document.getElementById("newsletter");
 
@@ -100,9 +26,7 @@ const infoCgu = document.getElementById("info-cgu");
 
 // Regex 
 const regexName = /^[a-zA-Z-\s]+$/;
-//const regexBirthdate = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])|(0?[1-9]|[12]\d|3[01])[/](0?[1-9]|1[0-2])[/](19[3-9]+[0-9]|200[0-6]))$/;
 
-// AJOUTER UN EVENEMENT PAR INPUT (BLUR) POUR DECLARER QUA CHAQUE SORTIE DE CHAMP, LEVENEMENT SE DECLENCHE
 // Comportement en cas de champ valide 
 function validInput (selector, message) {
     selector.textContent = message;
@@ -121,7 +45,6 @@ function invalidInput (selector, errorMessage) {
     return false;
 }
 
-// DUPLIQUER LE PRINCIPE POUR CHAQUE CHAMP - NOM PRENOM AURAIENT PU ETRE REUNI DANS UNE FONCTION SOUS FORME DE PARAMETRES
 // Vérification Input Prénom
 function verifyFirstName() {
     const testFirstname = regexName.test(userFirstName.value);
@@ -188,8 +111,6 @@ function verifyTrnQuantity() {
     return validInput (infoTrnQuanity, "Nombre de participations valide !");
 };
 
-
-
 // Vérification Inputs Choix des villes ayant déjà participés 
 const cityCheckbox = document.getElementById("city-checkbox"); // Contenant checkbox villes
 const cityCheckboxBtn = document.querySelectorAll("input[type=radio]"); // Boutons checkbox villes
@@ -202,7 +123,6 @@ cityCheckboxBtn.forEach(function(checkbox) {
             arrayCityCheckbox = arrayCityCheckbox !== null;
     })
 });
-
 
 // Vérification Input Condition générales d'utilisation 
 let userCguCheck = userCgu.checked;
@@ -224,7 +144,6 @@ let userNewsletterCheck = userNewsletter.checked;
 userNewsletter.addEventListener('change', function(event) {
     userNewsletterCheck = event.target.checked;
 });
-
 
 
 // TEST VALIDATION DU FORMULAIRE
@@ -254,6 +173,3 @@ function formValidation(e) {
     // confirmationModale();
     // CREER UNE NOUVELLE MODALE DE VALIDATION DE FORMULAIRE 
 }
-
-
-

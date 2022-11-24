@@ -19,7 +19,7 @@ const userNewsletter = document.getElementById("newsletter");
 const infoFirstName = document.getElementById("info-firstname");
 const infoLastName = document.getElementById("info-lastname");
 const infoEmail = document.getElementById("info-email");
-const infoBirthdate = document.getElementById("info-birthdate");// VERIFIER QUE C'EST UN OBJ DATE (NEW DATE) DEFINIR UN STOP ENTRE 99 et 18 ANS - PRIO VERIF SI MAJEURE 
+const infoBirthdate = document.getElementById("info-birthdate");
 const infoTrnQuanity = document.getElementById("info-trn-quantity"); 
 const infoCityCheckbox = document.getElementById("info-checkbox");
 const infoCgu = document.getElementById("info-cgu");
@@ -44,6 +44,14 @@ function invalidInput (selector, errorMessage) {
     return false;
 }
 
+// Comportement en cas de champ invalide pour la section du choix de la ville
+function invalidInputCity (selector, errorMessage) {
+    selector.textContent = errorMessage;
+    selector.style.color = "red";
+    selector.style.fontSize = "15px";
+    return false;
+}
+
 // Vérification Input Prénom
 function verifyFirstName() {
     const testFirstname = regexName.test(userFirstName.value);
@@ -57,7 +65,7 @@ function verifyFirstName() {
     if (testFirstname === false) {
         return invalidInput (infoFirstName, "Format incorrect !");
     }
-    return validInput (infoFirstName, "Prénom validé !");
+    return validInput (infoFirstName, "Prénom valide !");
 };
 
 // Vérification Input Nom
@@ -91,7 +99,7 @@ function verifyEmail() {
 };
 
 // Vérification Input Date de naissance
-// CREER UN OBJET DATE - VALIDATION MAJEURE (PAS DE LIBRARIE)
+// Création d'un objet date afin de vérifier si l'utilisateur est bien majeur
 function verifyBirthdate() {
 
         let isValidDate = new Date(userBirthdate.value);
@@ -109,17 +117,31 @@ console.log(isValidDate);
     return validInput (infoBirthdate, "Date de naissance valide !");
 };
 
+
+
+
+
 // Vérification Input Nombre de tournois participés
 function verifyTrnQuantity() {
     if (userTrnQuantity.value === "") {
         return invalidInput (infoTrnQuanity, "Merci de renseigner un nombre de participations !");
     }
+
+    // --------- AJOUTER L'OBLIGATION DE SAISIR UNE VALEUR NUMERIQUE (NON FONCTIONNELLE, REGEX ?) -------
+    if (userTrnQuantity.value === isNaN) {
+        return invalidInput (infoTrnQuanity, "Merci de saisir une valeur numérique !");
+    }
+
     return validInput (infoTrnQuanity, "Nombre de participations valide !");
 };
 
+
+
+
+
 // Vérification Inputs Choix des villes ayant déjà participés 
-const cityCheckbox = document.getElementById("city-checkbox"); // Contenant checkbox villes
-const cityCheckboxBtn = document.querySelectorAll("input[type=radio]"); // Boutons checkbox villes
+const cityCheckbox = document.getElementById("city-checkbox");              // Contenant checkbox villes
+const cityCheckboxBtn = document.querySelectorAll("input[type=radio]");     // Boutons checkbox villes
 let arrayCityCheckbox =  Array.from(cityCheckboxBtn).find(i => i.checked);
 cityCheckboxBtn.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
@@ -131,7 +153,7 @@ cityCheckboxBtn.forEach(function(checkbox) {
 });
 function verifyCity() {
     if (!arrayCityCheckbox) {
-        return invalidInput (infoCityCheckbox, "Merci de renseigner une ville !");
+        return invalidInputCity (infoCityCheckbox, "Merci de renseigner une ville !");
     }
     return validInput (infoCityCheckbox, "Ville valide !");
 };
@@ -158,7 +180,7 @@ userNewsletter.addEventListener('change', function(event) {
 });
 
 
-// TEST VALIDATION DU FORMULAIRE
+// Validation du formulaire d'inscription
 function formValidation(e) {
     e.preventDefault();
 
@@ -189,7 +211,6 @@ console.log(validFirstName, validLastName, validEmail, validBirthdate, validTrnQ
        closeModal();
        confirmModalDisplay();
        
-    //    window.alert('Merci ! Votre réservation a bien été reçue !') // AJOUTER UNE MODALE DE CONFIRMATION 
     }
     
 }

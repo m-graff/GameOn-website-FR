@@ -21,12 +21,6 @@ function launchModal() {
 }
 
 
-
-
-/* ----------- MODIFICATIONS --------------- */ 
-
-
-
 /* FERMETURE MODALE */
 
 // Fermeture mondale au clic X 
@@ -57,8 +51,6 @@ modalbg.addEventListener('click',(event) => {
 });
 
 
-
-
 /* CONFIRMATION MODALE */
 
 // DOM Elements 
@@ -67,13 +59,13 @@ const confirmBtn = document.getElementById("confirm-btn");
 
 // Fonction d'affichage de la modale de confirmation
 function confirmModalDisplay() {
-    confirmModal.classList.add("visible") // Rajoute à la section la class visible, puis gestion de l'affichage via le CSS 
+    confirmModal.classList.add("visible") // Rajoute à la section la class visible, la gestion de l'affichage se fait via le CSS 
 }
 
-
+// Bouton de fermeture de la modale de confirmation
 confirmBtn.addEventListener('click', resetSignupModal);
 
-// 
+// Fonction de réinitialisation du formulaire d'inscription
 function resetSignupModal() {
 confirmModal.classList.remove("visible")
   document.querySelector("form").reset();
@@ -92,8 +84,15 @@ confirmModal.classList.remove("visible")
   
   infoTrnQuanity.previousElementSibling.style.border = "none";
   infoTrnQuanity.textContent = "";
+  
+    // AJOUTER LE CHAMP VILLE MANQUANT 
 
-  /*
+/*
+  infoCityCheckbox.style.display = "none";
+
+  infoCityCheckbox.previousElementSibling.style.border = "none";
+  infoCityCheckbox.textContent = "";
+
   infoCityCheckbox = [];
   cityCheckbox.style.display = "none";
   */

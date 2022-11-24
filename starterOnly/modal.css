@@ -55,7 +55,7 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Roboto, sans-serif;
 }
 
@@ -431,6 +431,7 @@ input:focus {
   font-size: 5rem;
   font-weight: bold;
   white-space: nowrap;
+  line-height: 150%;
 }
 
 .hero-text {
@@ -494,6 +495,7 @@ input:focus {
   .hero-headline {
     font-size: 4rem;
     white-space: normal;
+    line-height: normal;
   }
   .hero-text {
     display: block;
@@ -544,6 +546,10 @@ input:focus {
     display: block;
     text-align: left;
   }
+  .topnav a.active {
+    margin-right: 15px;
+  
+}
 }
 
 

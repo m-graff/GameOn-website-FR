@@ -60,6 +60,7 @@ const confirmBtn = document.getElementById("confirm-btn");
 // Fonction d'affichage de la modale de confirmation
 function confirmModalDisplay() {
     confirmModal.classList.add("visible") // Rajoute à la section la class visible, la gestion de l'affichage se fait via le CSS 
+    document.querySelector("body").style.overflow = "hidden"; // Suppression de l'overflow pour fixer la modale de confirmation sans scroll
 }
 
 // Bouton de fermeture de la modale de confirmation
@@ -85,17 +86,9 @@ confirmModal.classList.remove("visible")
   infoTrnQuanity.previousElementSibling.style.border = "none";
   infoTrnQuanity.textContent = "";
   
-    // AJOUTER LE CHAMP VILLE MANQUANT 
-
-/*
-  infoCityCheckbox.style.display = "none";
-
-  infoCityCheckbox.previousElementSibling.style.border = "none";
   infoCityCheckbox.textContent = "";
 
-  infoCityCheckbox = [];
-  cityCheckbox.style.display = "none";
-  */
+  document.querySelector("body").style.overflow = "auto"; // Suppression de l'overflow pour réafficher l'intégralité de la page 
 }
 
 

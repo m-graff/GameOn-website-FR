@@ -413,7 +413,7 @@ input:focus {
 }
 
 .hero-content::after {
-  content: "";
+  content: "";          /* Meta Element CSS - problematique donnant l'impression que l'image n'est pas identique à la maquette */
   width: 100%;
   height: 100%;
   background: #232323;
@@ -615,7 +615,7 @@ input:focus {
   padding-top: 15%;
   font-size: 40px;
   width: 100%;
-  height: 100vw;
+  height: 100vh;
 }
 
 #confirm-form p {

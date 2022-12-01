@@ -85,7 +85,7 @@ confirmModal.classList.remove("visible")
   infoTrnQuanity.previousElementSibling.style.border = "none";
   infoTrnQuanity.textContent = "";
   
-  // PROBLEME PERSISTANT A LA SUITE DUNE VALIDATION, LE BOUTON EST BIEN DECOCHE SUR LE NOUVEAU FORM, MAIS LE MESSAGE DE VALIDATION PERSISTE
+  arrayCityCheckbox = false;
   infoCityCheckbox.textContent = "";
 
   document.querySelector("body").style.overflow = "auto"; // Suppression de l'overflow pour réafficher l'intégralité de la page 

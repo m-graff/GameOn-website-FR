@@ -172,22 +172,7 @@ function formValidation(e) {
     let validTrnQuantity = verifyTrnQuantity();
     let validCity = verifyCity();
 
-console.log(validFirstName, validLastName, validEmail, validBirthdate, validTrnQuantity, userCguCheck, arrayCityCheckbox, validCity );
-
     if(validFirstName && validLastName && validEmail && validBirthdate && validTrnQuantity && userCguCheck && arrayCityCheckbox && validCity) {
-
-        let formData = new FormData();
-
-        formData.append('firstName', validFirstName);
-        formData.append('lastName', validLastName);
-        formData.append('email', validEmail);
-        formData.append('birthdate', validBirthdate);
-        formData.append('trnQuantity', validTrnQuantity);
-        formData.append('newsletter', userNewsletter.checked);
-
-        for (let [key, value] of formData.entries()) {
-			console.log(`${key}: ${value}`);
-		}
 
        closeModal();
        confirmModalDisplay();

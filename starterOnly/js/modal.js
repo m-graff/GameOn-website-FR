@@ -20,7 +20,6 @@ function launchModal() {
     modalbg.style.display = "block";
 }
 
-
 /* FERMETURE MODALE */
 
 // Fermeture mondale au clic X 
@@ -59,7 +58,7 @@ const confirmBtn = document.getElementById("confirm-btn");
 
 // Fonction d'affichage de la modale de confirmation
 function confirmModalDisplay() {
-    confirmModal.classList.add("visible") // Rajoute à la section la class visible, la gestion de l'affichage se fait via le CSS 
+    confirmModal.classList.add("visible")                     // Rajoute à la section la class visible, la gestion de l'affichage se fait via le CSS 
     document.querySelector("body").style.overflow = "hidden"; // Suppression de l'overflow pour fixer la modale de confirmation sans scroll
 }
 
@@ -86,6 +85,7 @@ confirmModal.classList.remove("visible")
   infoTrnQuanity.previousElementSibling.style.border = "none";
   infoTrnQuanity.textContent = "";
   
+  // PROBLEME PERSISTANT A LA SUITE DUNE VALIDATION, LE BOUTON EST BIEN DECOCHE SUR LE NOUVEAU FORM, MAIS LE MESSAGE DE VALIDATION PERSISTE
   infoCityCheckbox.textContent = "";
 
   document.querySelector("body").style.overflow = "auto"; // Suppression de l'overflow pour réafficher l'intégralité de la page 

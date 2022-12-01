@@ -1,8 +1,7 @@
 /* FORMULAIRE */ 
 
-
 // DOM Elements 
-// Bouton de validation du formulaire -- MODIFIER EN EVENT SUBMIT SUR LE FORM PLUTOT QUE SUR LE BOUTON
+// Bouton de validation du formulaire 
 const btnFormSubmit = document.getElementById("btn-form-submit");
 btnFormSubmit.addEventListener('click', formValidation);
 
@@ -24,7 +23,7 @@ const infoTrnQuanity = document.getElementById("info-trn-quantity");
 const infoCityCheckbox = document.getElementById("info-checkbox");
 const infoCgu = document.getElementById("info-cgu");
 
-// Regex 
+// Regex Nom et Prénom
 const regexName = /^[a-zA-Z-\s]+$/;
 
 // Comportement en cas de champ valide 
@@ -116,22 +115,14 @@ function verifyBirthdate() {
     return validInput (infoBirthdate, "Date de naissance valide !", userBirthdate);
 };
 
-
-
-
-
 // Vérification Input Nombre de tournois participés
 function verifyTrnQuantity() {
-    // AJOUTER L'OBLIGATION DE SAISIR UNE VALEUR NUMERIQUE 
+    // Vérification que la saisie soit bien une valeure numérique
     if (isNaN(parseInt(userTrnQuantity.value))) {
         return invalidInput (infoTrnQuanity, "Merci de saisir une valeur numérique !", userTrnQuantity);
     }
     return validInput (infoTrnQuanity, "Nombre de participations valide !", userTrnQuantity);
 };
-
-
-
-
 
 // Vérification Inputs Choix des villes ayant déjà participés 
 const cityCheckbox = document.getElementById("city-checkbox");              // Contenant checkbox villes
@@ -148,7 +139,6 @@ function verifyCity() {
     }
     return validInput (infoCityCheckbox, "Ville valide !");
 };
-
 
 // Vérification Input Condition générales d'utilisation 
 let userCguCheck = userCgu.checked;
@@ -170,7 +160,6 @@ let userNewsletterCheck = userNewsletter.checked;
 userNewsletter.addEventListener('change', function(event) {
     userNewsletterCheck = event.target.checked;
 });
-
 
 // Validation du formulaire d'inscription
 function formValidation(e) {

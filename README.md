@@ -1,7 +1,16 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+Welcome to this project, "Create a landing page with Javascript" !
 
-Test init
+This is an exercice as part of my developer training, "Développeur d'application - JavaScript React", for OpenClassrooms. 
+
+Tools used for this project :
+
+- HTML5
+- CSS3
+- JavaScript
+- Git & Github
+
+You can take a look here if interested : https://m-graff.github.io/GameOn-website-FR/starterOnly/
+
+Feel free to make comments or contact me directly at graffmederic@gmail.com
+
+See you soon for more !

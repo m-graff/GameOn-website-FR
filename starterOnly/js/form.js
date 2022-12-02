@@ -42,7 +42,7 @@ function invalidInput (selector, errorMessage, input) {
     selector.textContent = errorMessage;
     selector.style.color = "red";
     selector.style.fontSize = "15px";
-    input.style.border = "5px solid red";
+    input.style.border = "3px solid red";
     return false;
 }
 

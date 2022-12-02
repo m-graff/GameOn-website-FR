@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
         <title>Reservation</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="stylesheet" href="modal.css" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="modal.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
     </head>
 
     <body>
@@ -14,10 +14,10 @@
         <!-- Header - Navbar -->
         <header class="topnav" id="myTopnav">
             <div class="header-logo">
-                <img alt="logo" src="Logo.png" width="auto" height="auto" />
+                <img alt="logo" src="Logo.png">
             </div>
             <nav class="main-navbar">
-                <a href="#"class="active"><span>Détails de l'évènement</span></a>
+                <a href="#" class="active"><span>Détails de l'évènement</span></a>
                 <a href="#"><span>À propos</span></a>
                 <a href="#"><span>Contact</span></a>
                 <a href="#"><span>Évènements passés</span></a>
@@ -40,14 +40,14 @@
                     <button class="btn-signup modal-btn" data-modal="modal_inscription">Je m'inscris</button>
                 </div>
                 <div class="hero-img">
-                    <img src="./bg_img.jpg" alt="img" />
+                    <img src="./bg_img.jpg" alt="img">
                 </div>
                 <!-- Bouton Ouverture modale -->
                 <button class="btn-signup modal-btn">Je m'inscris</button>
             </section>
 
             <!-- Background entourant la modale -->
-            <section class="bground">
+            <div class="bground">
                 <!-- Modale d'inscription -->
                 <div class="content">
                     <span class="close"></span>
@@ -58,25 +58,25 @@
 
                             <div class="formData">
                                 <label for="user-firstname">Prénom</label><br>
-                                <input class="text-control" type="text" id="user-firstname" name="user-firstname" />
+                                <input class="text-control" type="text" id="user-firstname" name="user-firstname">
                                 <!-- Message d'erreur en cas de champ invalide -->
                                 <span id="info-firstname"></span>
                             </div>
                             <div class="formData">
                                 <label for="user-lastname">Nom</label><br>
-                                <input class="text-control" type="text" id="user-lastname" name="user-lastname" /><br>
+                                <input class="text-control" type="text" id="user-lastname" name="user-lastname"><br>
                                 <!-- Message d'erreur en cas de champ invalide -->
                                 <span id="info-lastname"></span>
                             </div>
                             <div class="formData">
                                 <label for="user-email">E-mail</label><br>
-                                <input class="text-control" type="email" id="user-email" name="user-email" /><br>
+                                <input class="text-control" type="email" id="user-email" name="user-email"><br>
                                 <!-- Message d'erreur en cas de champ invalide -->
                                 <span id="info-email"></span>
                             </div>
                             <div class="formData">
                                 <label for="user-birthdate">Date de naissance</label><br>
-                                <input class="text-control" type="date" id="user-birthdate" name="user-birthdate" /><br>
+                                <input class="text-control" type="date" id="user-birthdate" name="user-birthdate"><br>
                                 <!-- Message d'erreur en cas de champ invalide -->
                                 <span id="info-birthdate"></span>
                             </div>
@@ -89,32 +89,32 @@
 
                             <div id="city-checkbox" class="formData">
                                 <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-                                <input class="checkbox-input" type="radio" id="user-location1" name="user-location" value="New York" />
+                                <input class="checkbox-input" type="radio" id="user-location1" name="user-location" value="New York">
                                 <label class="checkbox-label" for="user-location1">
                                     <span class="checkbox-icon"></span>
                                     New York
                                 </label>
-                                <input class="checkbox-input" type="radio" id="user-location2" name="user-location" value="San Francisco" />
+                                <input class="checkbox-input" type="radio" id="user-location2" name="user-location" value="San Francisco">
                                 <label class="checkbox-label" for="user-location2">
                                     <span class="checkbox-icon"></span>
                                     San Francisco
                                 </label>
-                                <input class="checkbox-input" type="radio" id="user-location3" name="user-location" value="Seattle" />
+                                <input class="checkbox-input" type="radio" id="user-location3" name="user-location" value="Seattle">
                                 <label class="checkbox-label" for="user-location3">
                                     <span class="checkbox-icon"></span>
                                     Seattle
                                 </label>
-                                <input class="checkbox-input" type="radio" id="user-location4" name="user-location" value="Chicago" />
+                                <input class="checkbox-input" type="radio" id="user-location4" name="user-location" value="Chicago">
                                 <label class="checkbox-label" for="user-location4">
                                     <span class="checkbox-icon"></span>
                                     Chicago
                                 </label>
-                                <input class="checkbox-input" type="radio" id="user-location5" name="user-location" value="Boston" />
+                                <input class="checkbox-input" type="radio" id="user-location5" name="user-location" value="Boston">
                                 <label class="checkbox-label" for="user-location5">
                                     <span class="checkbox-icon"></span>
                                     Boston
                                 </label>
-                                <input class="checkbox-input" type="radio" id="user-location6" name="user-location" value="Portland" />
+                                <input class="checkbox-input" type="radio" id="user-location6" name="user-location" value="Portland">
                                 <label class="checkbox-label" for="user-location6">
                                     <span class="checkbox-icon"></span>
                                     Portland
@@ -124,7 +124,7 @@
                             </div>
 
                             <div class="formData">
-                                <input class="checkbox-input" type="checkbox" id="cgu" checked />
+                                <input class="checkbox-input" type="checkbox" id="cgu" checked>
                                 <label class="checkbox2-label" for="cgu">
                                     <span class="checkbox-icon"></span>
                                     J'ai lu et accepté les conditions d'utilisation.
@@ -134,7 +134,7 @@
                             </div>
 
                             <div class="formaData">
-                                <input class="checkbox-input" type="checkbox" id="newsletter" />
+                                <input class="checkbox-input" type="checkbox" id="newsletter">
                                 <label class="checkbox2-label" for="newsletter">
                                     <span class="checkbox-icon"></span>
                                     Je souhaite être prévenu des prochains évènements.
@@ -142,23 +142,23 @@
                             </div>
 
                             <!-- Bouton de validation du formulaire -->
-                            <input class="btn-submit" type="submit" id="btn-form-submit" value="C'est parti" />
+                            <input class="btn-submit" type="submit" id="btn-form-submit" value="C'est parti">
                             <span id="info-signup"></span>
                         
                         </form>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <!-- Modale de confirmation d'inscription -->
-            <section id="confirm-section">
+            <div id="confirm-section">
                 <div id="confirm-background"></div>
-                    <div id="confirm-form">
-                        <p>Merci pour<br> votre inscription</p>
-                        <label for="confirm-btn"></label>
-                        <input id="confirm-btn" type="button" value="Fermer">
-                    </div>
-            </section>
+                <div id="confirm-form">
+                    <p>Merci pour<br> votre inscription</p>
+                    <label for="confirm-btn"></label>
+                    <input id="confirm-btn" type="button" value="Fermer">
+                </div>
+            </div>
 
         </main>
 

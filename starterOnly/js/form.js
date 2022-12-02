@@ -1,4 +1,4 @@
-/* FORMULAIRE */ 
+/* FORMULAIRE D'INSCRIPTION */ 
 
 // DOM Elements 
 // Bouton de validation du formulaire 
@@ -103,16 +103,16 @@ function verifyEmail() {
 // Vérification Input Date de naissance
 // Création d'un objet date afin de vérifier si l'utilisateur est bien majeur
 function verifyBirthdate() {
-        let isValidDate = new Date(userBirthdate.value);
-        const todayDate = new Date();
-        isValidDate.setFullYear(isValidDate.getFullYear() + 18);
-    if (userBirthdate.value === "") {
-    return invalidInput (infoBirthdate, "Merci de renseigner votre date de naissance !", userBirthdate);
-    }
-    if (isValidDate > todayDate) {
-        return invalidInput (infoBirthdate, "Vous devez être majeur pour vous inscrire !", userBirthdate);
-    }
-    return validInput (infoBirthdate, "Date de naissance valide !", userBirthdate);
+    let isValidDate = new Date(userBirthdate.value);
+    const todayDate = new Date();
+    isValidDate.setFullYear(isValidDate.getFullYear() + 18);
+        if (userBirthdate.value === "") {
+        return invalidInput (infoBirthdate, "Merci de renseigner votre date de naissance !", userBirthdate);
+        }
+        if (isValidDate > todayDate) {
+            return invalidInput (infoBirthdate, "Vous devez être majeur pour vous inscrire !", userBirthdate);
+        }
+        return validInput (infoBirthdate, "Date de naissance valide !", userBirthdate);
 };
 
 // Vérification Input Nombre de tournois participés
@@ -171,11 +171,11 @@ function formValidation(e) {
     let validBirthdate = verifyBirthdate();
     let validTrnQuantity = verifyTrnQuantity();
     let validCity = verifyCity();
-
+    // Vérification que tous les champs soient correctement saisis selon nos conditions préalablement établies
     if(validFirstName && validLastName && validEmail && validBirthdate && validTrnQuantity && userCguCheck && arrayCityCheckbox && validCity) {
 
-       closeModal();
-       confirmModalDisplay();
+       closeModal();            // Fermeture de la modale d'inscription
+       confirmModalDisplay();   // Ouverture de la modale de confirmation
        
     }
 }

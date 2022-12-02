@@ -7,6 +7,8 @@ function editNav() {
   }
 }
 
+/* MODALE D'INSCRIPTION */
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -20,9 +22,7 @@ function launchModal() {
     modalbg.style.display = "block";
 }
 
-/* FERMETURE MODALE */
-
-// Fermeture mondale au clic X 
+// Fermeture de la mondale au clic X 
 // Déclaration constante fermeture modale 
 const modalClose = document.querySelectorAll(".close"); 
 modalClose.forEach(Element=>Element.addEventListener("click", closeModal));
@@ -31,7 +31,7 @@ function closeModal() {
     modalbg.style.display = "none";
 } 
 
-// Fermeture modale bouton Echap 
+// Fermeture de la modale via la touche Echap 
 const keyCodes = {
     escape: "Escape"
 };
@@ -41,7 +41,7 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-// Fermeture modale via un clic outside 
+// Fermeture de la modale via un clic outside 
 modalbg.addEventListener('click',(event) => {
     if (event.target !== event.currentTarget) {
         return
@@ -50,7 +50,7 @@ modalbg.addEventListener('click',(event) => {
 });
 
 
-/* CONFIRMATION MODALE */
+/* MODALE DE CONFIRMATION */
 
 // DOM Elements 
 const confirmModal = document.getElementById("confirm-section");
@@ -59,7 +59,7 @@ const confirmBtn = document.getElementById("confirm-btn");
 // Fonction d'affichage de la modale de confirmation
 function confirmModalDisplay() {
     confirmModal.classList.add("visible")                     // Rajoute à la section la class visible, la gestion de l'affichage se fait via le CSS 
-    document.querySelector("body").style.overflow = "hidden"; // Suppression de l'overflow pour fixer la modale de confirmation sans scroll
+    document.querySelector("body").style.overflow = "hidden"; // Ajout d'un overflow hidden pour fixer la modale de confirmation sans scroll
 }
 
 // Bouton de fermeture de la modale de confirmation
@@ -88,7 +88,7 @@ confirmModal.classList.remove("visible")
   arrayCityCheckbox = false;
   infoCityCheckbox.textContent = "";
 
-  document.querySelector("body").style.overflow = "auto"; // Suppression de l'overflow pour réafficher l'intégralité de la page 
+  document.querySelector("body").style.overflow = "auto"; // Suppression de l'overflow hidden pour réafficher l'intégralité de la page 
 }
 
 

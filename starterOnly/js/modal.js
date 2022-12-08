@@ -91,7 +91,12 @@ confirmModal.classList.remove("visible")
   document.querySelector("body").style.overflow = "auto"; // Suppression de l'overflow hidden pour réafficher l'intégralité de la page 
 }
 
-
-
-
+// Fermeture de la mondale de confirmation au clic X 
+// Déclaration constante fermeture modale 
+const modalCloseConfirm = document.querySelector(".closeConfirm"); 
+modalCloseConfirm.addEventListener("click", closeModalConfirm);
+// Fonction déterminant la fermeture de la modale 
+function closeModalConfirm() {
+    resetSignupModal();
+} 
 

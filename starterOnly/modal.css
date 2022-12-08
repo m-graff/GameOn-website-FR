@@ -488,22 +488,25 @@ input:focus {
 }
 
 #confirm-form {
+  margin: 5% auto;
+  max-width: 500px;
+  border-radius: 10px;
   z-index: 3;
   position: fixed;
   top: 0;
-  left: 0;
+  transform: translateX(-50%);
+  left: 50%;
   background-color: #000;
   color: white;
   text-align: center;
-  padding-top: 15%;
-  font-size: 40px;
+  font-size: 30px;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 }
 
 #confirm-form p {
   position: absolute;
-  top: 200px;
+  top: 180px;
   transform: translateX(-50%);
   left: 50%;
 }
@@ -523,6 +526,35 @@ input:focus {
   bottom: 20px;
   transform: translateX(-50%);
   left: 50%;
+}
+
+.closeConfirm {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+
+.closeConfirm:before,
+.closeConfirm:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.closeConfirm:before {
+  transform: rotate(45deg);
+}
+
+.closeConfirm:after {
+  transform: rotate(-45deg);
 }
 
 /* Responsive */
@@ -628,7 +660,6 @@ input:focus {
     opacity: 1;
   }
 }
-
 
 
 
